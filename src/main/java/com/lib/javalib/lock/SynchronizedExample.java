@@ -26,7 +26,6 @@ public class SynchronizedExample {
             for(int i = 0; i < 1000; i++) {
                 log.debug("getThread counter:{}",synchronizedExample.getCounter());
             }
-
         });
 
         addThread.start();
