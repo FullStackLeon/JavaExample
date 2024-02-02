@@ -24,6 +24,7 @@ public class LinkedListExample {
 
         list.set(0, "abc");
         list.remove("d");
+        list.pop();
         for (String item:list){
             log.debug("after set and remove,list item:{}", item);
         }

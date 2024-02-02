@@ -15,20 +15,20 @@ public class LinkedHashSetExample {
         linkedHashSet.add("b");
         linkedHashSet.add("c");
 
-        linkedHashSet.forEach(item -> log.debug("after init,list item:{}", item));
-        HashSet<String> anotherSet = new HashSet<>();
+        linkedHashSet.forEach(item -> log.debug("after init,set item:{}", item));
+        LinkedHashSet<String> anotherSet = new LinkedHashSet<>();
         anotherSet.add("d");
         anotherSet.add("e");
         anotherSet.add("f");
+        anotherSet.add(null);
 
         linkedHashSet.addAll(anotherSet);
         Iterator<String> iterator = linkedHashSet.iterator();
         while (iterator.hasNext()) {
-            String item = iterator.next();
-            log.debug("after add,list item:{}", item);
+            log.debug("after add,set item:{}", iterator.next());
         }
 
         linkedHashSet.remove("a");
-        linkedHashSet.forEach(item -> log.debug("after remove,list item:{}", item));
+        linkedHashSet.forEach(item -> log.debug("after remove,set item:{}", item));
     }
 }
