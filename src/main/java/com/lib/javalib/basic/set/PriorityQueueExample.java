@@ -12,14 +12,15 @@ public class PriorityQueueExample {
         priorityQueue.add(3);
         priorityQueue.add(1);
         priorityQueue.add(2);
-        while(!priorityQueue.isEmpty()) {
-            log.debug("after init,queue item:{}", priorityQueue.poll());
-        }
-
         priorityQueue.add(5);
         priorityQueue.add(4);
+        Integer[] list = priorityQueue.toArray(new Integer[0]);
+        for (Integer integer : list) {
+            log.debug("queue item:{}", integer);
+        }
+
         while(!priorityQueue.isEmpty()) {
-            log.debug("after add,queue item:{}", priorityQueue.poll());
+            log.debug("after init,queue item:{}", priorityQueue.poll());
         }
     }
 }
