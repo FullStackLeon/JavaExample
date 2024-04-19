@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class ThreadPoolExecutorExample {
 
     public static void main(String[] args) throws InterruptedException, RuntimeException {
-        ExecutorService executor = Executors.newCachedThreadPool();
+        ExecutorService executor = Executors.newFixedThreadPool(1);
         ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) executor;
         // add task to thread pool
         for (int i = 0; i < 10; i++) {
