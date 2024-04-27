@@ -1,20 +1,18 @@
 package com.lib.javalib.thread;
 
 import lombok.extern.slf4j.Slf4j;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+
+import java.util.concurrent.*;
 
 @Slf4j
 public class ThreadPoolExecutorExample {
 
     public static void main(String[] args) throws InterruptedException, RuntimeException {
-        ExecutorService executor = Executors.newFixedThreadPool(1);
-        ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) executor;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,1, 60,TimeUnit.SECONDS,new ArrayBlockingQueue<>(10));
         // add task to thread pool
         for (int i = 0; i < 10; i++) {
             final int index = i;
-            executor.submit(() -> {
+            threadPoolExecutor.submit(() -> {
                 try {
                     Thread.sleep(2000);
                     log.debug("Task execute completed,thread pool state:{},index:{}", getState(threadPoolExecutor), index);
@@ -26,7 +24,7 @@ public class ThreadPoolExecutorExample {
             });
         }
 
-        executor.shutdown();
+        threadPoolExecutor.shutdown();
         log.debug("After shutdown,thread pool state:{}", getState(threadPoolExecutor));
 
         try {
