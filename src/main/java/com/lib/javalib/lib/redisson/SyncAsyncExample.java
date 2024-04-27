@@ -54,6 +54,18 @@ public class SyncAsyncExample {
         sortedSetObj.add(2, "value2");
         out.println(sortedSetObj.readAll());
 
+        // 分布式锁示例
+        RLock lock = redissonClient.getLock("distributed_lock");
+        try {
+            if (lock.tryLock()) {
+                out.println("try lock successfully");
+            } else {
+                out.println("try lock failure");
+            }
+        } finally {
+            lock.unlock();
+        }
+
         redissonClient.shutdown();
     }
 }
