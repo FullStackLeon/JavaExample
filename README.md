@@ -1,3 +1,3 @@
 ```mindmap
-JavaLib contains using example about SpringBoot and basic structure and so on.
+JavaExample contains some examples about Java.
 ```
