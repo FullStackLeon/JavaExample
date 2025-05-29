@@ -3,6 +3,7 @@ package com.lib.javalib.basic.set;
 import lombok.extern.slf4j.Slf4j;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 @Slf4j
 public class ArrayListExample {
@@ -31,6 +32,17 @@ public class ArrayListExample {
         list.remove(0);
         for (String s : list) {
             log.debug("after remove,list item: " + s);
+        }
+
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String s = iterator.next();
+            if (Integer.parseInt(s) % 2 == 0) {
+                iterator.remove();
+            }
+        }
+        for (String s : list) {
+            log.debug("after iterator remove,list item: " + s);
         }
     }
 }
