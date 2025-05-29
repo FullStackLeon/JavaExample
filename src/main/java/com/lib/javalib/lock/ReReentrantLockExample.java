@@ -36,7 +36,7 @@ public class ReReentrantLockExample {
     public static void main(String[] args) throws InterruptedException {
         ReReentrantLockExample reReentrantLockExample = new ReReentrantLockExample();
         Thread thread = new Thread(reReentrantLockExample::firstGetLock);
-        Thread otherThread = new Thread(reReentrantLockExample::firstGetLock);
+        Thread otherThread = new Thread(reReentrantLockExample::firstGetLock); // 方法引用 Method Reference
 
         thread.start();
         otherThread.start();

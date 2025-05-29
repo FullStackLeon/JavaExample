@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SynchronizedExample {
     private int counter;
+
     public final synchronized void addCounter() {
         counter++;
     }
@@ -14,19 +15,19 @@ public class SynchronizedExample {
     }
 
     public static void main(String[] args) {
-        SynchronizedExample synchronizedExample  = new SynchronizedExample();
-
+        SynchronizedExample synchronizedExample = new SynchronizedExample();
+        // lambda expression
         Thread addThread = new Thread(() -> {
-            for(int i = 0; i < 1000; i++) {
+            for (int i = 0; i < 1000; i++) {
                 synchronizedExample.addCounter();
             }
-        });
+        }, "AddThread");
 
         Thread getThread = new Thread(() -> {
-            for(int i = 0; i < 1000; i++) {
-                log.debug("getThread counter:{}",synchronizedExample.getCounter());
+            for (int i = 0; i < 1000; i++) {
+                log.debug("getThread counter:{}", synchronizedExample.getCounter());
             }
-        });
+        }, "GetThread");
 
         addThread.start();
         getThread.start();
