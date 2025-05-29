@@ -4,7 +4,6 @@
     import java.util.List;
     import java.util.concurrent.TimeUnit;
 
-    import static java.lang.System.*;
 
     // 编译、打包、运行可执行jar包
     // 1. javac com/lib/javalib/debug/HeapDumpExample.java
