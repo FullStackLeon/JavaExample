@@ -1,16 +1,14 @@
 package com.lib.javalib.basic.set;
 
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 @Slf4j
 public class ArrayListExample {
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("1");
         list.add("2");
         list.add("3");
@@ -26,9 +24,13 @@ public class ArrayListExample {
         }
 
         list.removeAll(Collections.singleton("5"));
-        list.set(0, "1234");
+        list.set(0, "12345");
         for (String s : list) {
             log.debug("after remove and set,list item: " + s);
+        }
+        list.remove(0);
+        for (String s : list) {
+            log.debug("after remove,list item: " + s);
         }
     }
 }
